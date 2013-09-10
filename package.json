@@ -1,0 +1,14 @@
+{
+  "name": "JSPiratesLogs",
+  "version": "1.0.0",
+  "description": "JSPirates podcast S3 access logs parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Public",
+  "dependencies": {
+    "split": "~0.2.10"
+  }
+}
