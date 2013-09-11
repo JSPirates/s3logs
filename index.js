@@ -7,8 +7,7 @@ var split = require("split");
 var util = require("util");
 
 var LOGS_DIR = "./logs";
-// var TEST_RE = /\S+ (\S+) \[(.*)\] (\d+\.\d+\.\d+\.\d+) (\S+) (\S+) (\S+) (\S+) \"(\-|.*?)\" (\-|\d+) (\-|\S+) (\-|\d+) (\-|\d+) (\-|\d+) (?:\-|\d+) \"(-|.*?)\" \"(-|.*?)\"\s?(.?)/;
-var TEST_RE = / asd/;
+var TEST_RE = /\S+ (\S+) \[(.*)\] (\d+\.\d+\.\d+\.\d+) (\S+) (\S+) (\S+) (\S+) \"(\-|.*?)\" (\-|\d+) (\-|\S+) (\-|\d+) (\-|\d+) (\-|\d+) (?:\-|\d+) \"(-|.*?)\" \"(-|.*?)\"\s?(.?)/;
 
 //--- Logs reader
 // This stream should read all logs and push their contents to the next stream
