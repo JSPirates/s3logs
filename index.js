@@ -39,12 +39,11 @@ LogLoaderStream.prototype._read = function (size) {
 }
 
 //--- Logs parser
-// This stream should process log strings one-by-one and push it futher as objects
+// This stream should process log strings one-by-one and push them futher
+// as objects
 
-LogProcessStream = function (options) {
-    var realOpts = options || {};
-    realOpts.objectMode = true;
-    stream.Transform.call(this, realOpts);
+LogProcessStream = function () {
+    stream.Transform.call(this, {objectMode: true});
 }
 
 util.inherits(LogProcessStream, stream.Transform);
@@ -55,6 +54,8 @@ LogProcessStream.prototype._transform = function (chunk, encoding, callback) {
     if (!!testRes) {
         var _bytesSent = parseInt(testRes[11], 10);
         var _objSize = parseInt(testRes[12], 10);
+
+        // TODO: Date parsing instead of the .timeString attribute
         var res = {
             bucket: testRes[1],
             timeString: testRes[2],
@@ -82,10 +83,25 @@ LogProcessStream.prototype._transform = function (chunk, encoding, callback) {
         throw new Error("Log pattern doesn't match: ["+chunk.toString()+"]");
     }
 
-    // Every time we dealing with the complete stream, so signaling about full
+    // Every time we dealing with the complete string, so signaling about full
     // chunk consumption
     callback();
 };
+
+//--- StorageStream
+// Stream should consume incomming objects and store them for futher analysis
+
+StorageStream = function () {
+    stream.Writable.call(this, {objectMode: true});
+}
+
+util.inherits(StorageStream, stream.Writable);
+
+StorageStream.prototype._write = function (chunk, encoding, callback) {
+    // TODO: Method code instead of printing
+    console.log("---", chunk.statusCode, chunk);
+    callback();
+}
 
 //--- Main
 
@@ -96,6 +112,7 @@ fs.readdir(LOGS_DIR, function (err, files) {
     } else {
         var loader = new LogLoaderStream(files, LOGS_DIR);
         var processor = new LogProcessStream();
-        loader.pipe(split()).pipe(processor);
+        var storage = new StorageStream();
+        loader.pipe(split()).pipe(processor).pipe(storage);
     }
 });
