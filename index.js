@@ -6,7 +6,9 @@ var stream = require("stream");
 var split = require("split");
 var util = require("util");
 
-LOGS_DIR = "./logs";
+var LOGS_DIR = "./logs";
+// var TEST_RE = /\S+ (\S+) \[(.*)\] (\d+\.\d+\.\d+\.\d+) (\S+) (\S+) (\S+) (\S+) \"(\-|.*?)\" (\-|\d+) (\-|\S+) (\-|\d+) (\-|\d+) (\-|\d+) (?:\-|\d+) \"(-|.*?)\" \"(-|.*?)\"\s?(.?)/;
+var TEST_RE = / asd/;
 
 //--- Logs reader
 // This stream should read all logs and push their contents to the next stream
@@ -48,20 +50,37 @@ LogProcessStream = function (options) {
 
 util.inherits(LogProcessStream, stream.Transform);
 
-LogProcessStream.prototype._transform = function(chunk, encoding, callback) {
-    // TODO: Should be rewritten to regexp processing
-    var chunkString = chunk.toString();
-    var test = chunkString.split(" ");
+LogProcessStream.prototype._transform = function (chunk, encoding, callback) {
+    var testRes = TEST_RE.exec(chunk.toString());
 
-    var res = {
-        source: chunkString,
-        requestType: test[7].toUpperCase()
-    };
+    if (!!testRes) {
+        var _bytesSent = parseInt(testRes[11], 10);
+        var _objSize = parseInt(testRes[12], 10);
+        var res = {
+            bucket: testRes[1],
+            timeString: testRes[2],
+            remoteIP: testRes[3],
+            requester: testRes[4],
+            requestId: testRes[5],
+            requestType: testRes[6],
+            filename: testRes[7],
+            uri: testRes[8],
+            statusCode: parseInt(testRes[9], 10),
+            errorCode: "-" === testRes[10] ? null : testRes[10],
+            bytesSent: !!_bytesSent ? _bytesSent : null,
+            objectSize: !!_objSize ? _objSize : null,
+            totalTime: parseInt(testRes[13], 10),
+            referer: "-" === testRes[14] ? null : testRes[14],
+            userAgent: "-" === testRes[15] ? null : testRes[15],
+            add: testRes[16]
+        };
 
-    if ("REST.GET.OBJECT" === res.requestType) {
-        // We interested only for "REST.GET.OBJECT" requests
-        this.push(res);
-        console.log("---", res);
+        // We interested only in "REST.GET.OBJECT" requests
+        if ("REST.GET.OBJECT" === res.requestType) {
+            this.push(res);
+        }
+    } else {
+        throw new Error("Log pattern doesn't match: ["+chunk.toString()+"]");
     }
 
     // Every time we dealing with the complete stream, so signaling about full
