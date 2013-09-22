@@ -1,6 +1,8 @@
 logs
 node_modules
 
+.idea
 config.json
 *.log
 synclogs.sh
+.DS_Store
