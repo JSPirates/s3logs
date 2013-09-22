@@ -39,7 +39,7 @@ LogLoaderStream.prototype._read = function (size) {
 }
 
 //--- Logs parser
-// This stream should process log strings one-by-one and push them futher
+// This stream should process log strings one-by-one and push them further
 // as objects
 
 LogProcessStream = function () {
@@ -89,7 +89,7 @@ LogProcessStream.prototype._transform = function (chunk, encoding, callback) {
 };
 
 //--- StorageStream
-// Stream should consume incomming objects and store them for futher analysis
+// Stream should consume incoming objects and store them for further analysis
 
 StorageStream = function () {
     stream.Writable.call(this, {objectMode: true});
