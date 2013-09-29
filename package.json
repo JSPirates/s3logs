@@ -18,7 +18,7 @@
         "jayschema": "~0.2.0"
     },
     "scripts": {
-        "test": "./node_modules/mocha/bin/mocha -t 100000 test/Processor/Processor.js --ui tdd"
+        "test": "./node_modules/mocha/bin/mocha -t 100000 test/integration"
     },
     "repository": {
         "type": "git",
