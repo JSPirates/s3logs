@@ -2,7 +2,7 @@ var Loader = require('../../lib/Loader');
 var Processor = require('../../lib/Processor');
 var Reporter = require('../../lib/Reporter');
 var fs = require('fs');
-var logDir = './logs';
+var logDir = './test/logs';
 var es = require('event-stream');
 
 
