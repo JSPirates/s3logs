@@ -1,14 +1,30 @@
 {
-  "name": "JSPiratesLogs",
-  "version": "1.0.0",
-  "description": "JSPirates podcast S3 access logs parser",
+  "name": "s3logs",
+  "version": "0.0.0",
+  "description": "",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "event-stream": "~3.0.16",
+    "jayschema": "~0.2.0",
+    "nodeunit": "~0.8.1",
+    "split": "~0.2.10",
+    "through": "~2.3.4",
+    "vows": "~0.7.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JSPirates/s3logs.git"
+  },
   "author": "",
-  "license": "Public",
-  "dependencies": {
-    "split": "~0.2.10"
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/JSPirates/s3logs/issues"
   }
 }
