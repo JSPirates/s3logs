@@ -23,6 +23,7 @@ describe('Log parser', function () {
             loader,
             es.split(),
             processor,
+            reporter,
             es.through(function (data) {
                 reports++;
                 assert.equal(typeof data, 'object');
