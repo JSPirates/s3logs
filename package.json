@@ -1,30 +1,32 @@
 {
-  "name": "s3logs",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "event-stream": "~3.0.16",
-    "jayschema": "~0.2.0",
-    "nodeunit": "~0.8.1",
-    "split": "~0.2.10",
-    "through": "~2.3.4",
-    "vows": "~0.7.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/JSPirates/s3logs.git"
-  },
-  "author": "",
-  "license": "BSD-2-Clause",
-  "bugs": {
-    "url": "https://github.com/JSPirates/s3logs/issues"
-  }
+    "name": "s3logs",
+    "version": "0.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "test": "test"
+    },
+    "dependencies": {
+        "event-stream": "~3.0.16",
+        "split": "~0.2.10",
+        "through": "~2.3.4"
+    },
+    "devDependencies": {
+        "mocha": "~1.13.0",
+        "nodeunit": "~0.8.1",
+        "vows": "~0.7.0",
+        "jayschema": "~0.2.0"
+    },
+    "scripts": {
+        "test": "./node_modules/mocha/bin/mocha test/integration/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/JSPirates/s3logs.git"
+    },
+    "author": "",
+    "license": "BSD-2-Clause",
+    "bugs": {
+        "url": "https://github.com/JSPirates/s3logs/issues"
+    }
 }
