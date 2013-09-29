@@ -18,7 +18,7 @@
         "jayschema": "~0.2.0"
     },
     "scripts": {
-        "test": "./node_modules/mocha/bin/mocha test/integration/"
+        "test": "./node_modules/mocha/bin/mocha -t 10000 test/integration/"
     },
     "repository": {
         "type": "git",
