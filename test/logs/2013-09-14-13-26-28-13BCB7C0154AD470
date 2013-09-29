@@ -1,0 +1,2 @@
+a527002d94e86f45bc3eb23479890f1832ab559c2a44d24da78a9dcd7a426b17 jspirates [14/Sep/2013:11:41:16 +0000] 5.9.105.53 - F4CBED9768C2F74F REST.HEAD.OBJECT jsp_004_480p.mp4 "HEAD /jspirates/jsp_004_480p.mp4 HTTP/1.1" 200 - - 313065549 9 - "-" "Java/1.6.0_35" -
+a527002d94e86f45bc3eb23479890f1832ab559c2a44d24da78a9dcd7a426b17 jspirates [14/Sep/2013:12:30:58 +0000] 95.189.34.67 - F4E987DC81E5C29F REST.GET.OBJECT jsp_003.mp3 "GET /jspirates/jsp_003.mp3 HTTP/1.1" 403 AccessDenied 231 - 11 - "-" "AppleCoreMedia/1.0.0.10B350 (iPhone; U; CPU OS 6_1_4 like Mac OS X; ru_ru)" -

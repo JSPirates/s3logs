@@ -1,0 +1,2 @@
+a527002d94e86f45bc3eb23479890f1832ab559c2a44d24da78a9dcd7a426b17 jspirates [15/Sep/2013:16:17:46 +0000] 37.146.151.225 - 630FECE024272376 REST.HEAD.OBJECT jsp_003.mp3 "HEAD /jspirates/jsp_003.mp3 HTTP/1.1" 403 AccessDenied 231 - 9 - "-" "Podcasts/1.2.3" -
+a527002d94e86f45bc3eb23479890f1832ab559c2a44d24da78a9dcd7a426b17 jspirates [15/Sep/2013:16:18:00 +0000] 37.146.151.225 - E9043130B394F474 REST.HEAD.OBJECT jsp_003.mp3 "HEAD /jspirates/jsp_003.mp3 HTTP/1.1" 403 AccessDenied 231 - 10 - "-" "iTunes-iPhone/6.1.3 (6; 32GB; dt:73)" -
